@@ -1,52 +1,63 @@
-# C++ objects and libs
-*.slo
-*.lo
-*.o
-*.a
-*.la
-*.lai
-*.so
-*.so.*
-*.dll
-*.dylib
+# CMake
+CMakeFiles/*
+cmake_install.cmake
+CMakeCache.txt
+CPackSourceConfig.cmake
 
-# Qt-es
-object_script.*.Release
-object_script.*.Debug
-*_plugin_import.cpp
-/.qmake.cache
-/.qmake.stash
-*.pro.user
-*.pro.user.*
-*.qbs.user
-*.qbs.user.*
-*.moc
-moc_*.cpp
-moc_*.h
-qrc_*.cpp
-ui_*.h
-*.qmlc
-*.jsc
-Makefile*
-*build-*
+# CMake - Makefile generator
+Makefile
+
+# Build results
+build
+LC_MESSAGES
+*.mo
 *.qm
-*.prl
+*.qmlc
+*.qsb
+resources/i18n/en_US
+resources/i18n/x-test
+resources/i18n/en_7S
+.mypy_cache
+.coverage*
+htmlcov/
 
-# Qt unit tests
-target_wrapper.*
+# JUnit
+junit.xml
+junit-pytest-*
 
-# QtCreator
-*.autosave
+# Different files
+*.pyc
+*kdev*
+__pycache__
+docs/html
+*.lprof
+*.log
+*~
+Uranium.e4p
+_eric6project/Uranium.e4q
+_eric6project/Uranium.e4t
+.cache
+*.kate-swp
 
-# QtCreator Qml
-*.qmlproject.user
-*.qmlproject.user.*
+## Eclipse+PyDev incl. Mylyn
+.project
+.settings/org.eclipse.mylyn.tasks.ui.prefs
+.pydevproject
 
-# QtCreator CMake
-CMakeLists.txt.user*
+## IntelliJ projects
+.idea
 
-# QtCreator 4.8< compilation database 
-compile_commands.json
+#Test results.
+tests/Settings/instances/machine_settings_with_overrides_test.cfg
+tests/Settings/profiles/simple_machine_with_overrides_test.cfg
+.pytest_cache/
 
-# QtCreator local machine specific files for imported projects
-*creator.user*
+#MacOS
+.DS_Store
+UM/.DS_Store
+resources/.DS_Store
+
+#Common plug-ins
+plugins/UraniumExample*Plugin
+/conanbuildinfo.txt
+/graph_info.json
