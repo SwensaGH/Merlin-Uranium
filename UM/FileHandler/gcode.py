@@ -1,6 +1,7 @@
 import os
 import math
 from enum import Enum
+import subprocess
 
 class TransformGCode:
     class SliceType(Enum):
@@ -364,3 +365,5 @@ class TransformGCode:
         plot.close()
         f.close()
         of.close()
+        subprocess.Popen([os.environ['PROGRAMFILES'] +
+                        "/Merlin Printer 1.0.0/UM/g2p/g2pcoach.exe", dest])

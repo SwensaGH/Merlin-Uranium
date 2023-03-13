@@ -2,7 +2,7 @@
 # Uranium is released under the terms of the LGPLv3 or higher.
 
 from UM.Job import Job
-from gcode import TransformGCode
+from UM.FileHandler.gcode import TransformGCode 
 
 from UM.Logger import Logger
 from UM.FileHandler.FileWriter import FileWriter
