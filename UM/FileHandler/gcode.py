@@ -100,7 +100,7 @@ class TransformGCode:
     '''
 
     layerHeight = 30
-    secondaryZAxis = 100
+    secondaryZAxis = 1000
     store = []
     sliceType = SliceType.NONE
     layer = 0
@@ -201,7 +201,7 @@ class TransformGCode:
                 self.layerHeight = float(tempVal)
                 print("Layer Height : " + str(self.layerHeight))
                 continue
-            if ";MINZ:" in line:
+            if ";secondary_z_axis:" in line:
                 tempVal = line.split(":")[1].strip()
                 if tempVal.replace(".", "").isnumeric():
                     self.secondaryZAxis = float(tempVal)
@@ -367,3 +367,13 @@ class TransformGCode:
         of.close()
         subprocess.Popen([os.environ['PROGRAMFILES'] +
                         "/Merlin Printer 1.0.0/UM/g2p/g2pcoach.exe", dest])
+
+
+#---------- TESTING ---------------------------
+
+inputFile = "C:\\Users\\nr\\Documents\\Merlin\\lshape.gcode"
+outputFile = "C:\\Users\\nr\\Documents\\Merlin\\lshape_out.gcode"
+
+transform = TransformGCode()
+transform.updateGcode(inputFile, outputFile)
+
