@@ -313,7 +313,10 @@ class TransformGCode:
                             self.store.pop(0)
                         if len(self.store) == 2:
                             angle = self.calculateTurn()
-                            saveLine = saveLine + " C" + format(angle, '.5f')
+                            if angle < 0:
+                                angle = 180 - angle
+                            count = count + 1
+                            saveLine = saveLine + '\nN' + str(count) + " C" + format(angle, '.5f')
 
                 if len(saveLine.strip()) > 0:
                     saveLine = saveLine.replace(" G28 ", " G0 ")
@@ -358,11 +361,10 @@ class TransformGCode:
                     writeTypeEnd = ""
         self.addLayerHTML()
         print("-------------Done---------")
-        # os.system(r'D:/g2p/g2pcoach.exe C:/Users/Public/gcode1.txt')
-        plot = open("plot.html", "w")
-        plot.write(self.htmlTemplate.replace("JS_TEMPLATE", self.holdJSTemplate).replace(
-            "DIV_TEMPLATE", self.holdDivTemplate))
-        plot.close()
+        # plot = open("plot.html", "w")
+        # plot.write(self.htmlTemplate.replace("JS_TEMPLATE", self.holdJSTemplate).replace(
+        #     "DIV_TEMPLATE", self.holdDivTemplate))
+        # plot.close()
         f.close()
         of.close()
         subprocess.Popen([os.environ['PROGRAMFILES'] +
@@ -371,9 +373,9 @@ class TransformGCode:
 
 #---------- TESTING ---------------------------
 
-inputFile = "C:\\Users\\nr\\Documents\\Merlin\\lshape.gcode"
-outputFile = "C:\\Users\\nr\\Documents\\Merlin\\lshape_out.gcode"
+# inputFile = "C:\\Users\\nr\\Documents\\Merlin\\lshape.gcode"
+# outputFile = "C:\\Users\\nr\\Documents\\Merlin\\lshape_out.gcode"
 
-transform = TransformGCode()
-transform.updateGcode(inputFile, outputFile)
+# transform = TransformGCode()
+# transform.updateGcode(inputFile, outputFile)
 
